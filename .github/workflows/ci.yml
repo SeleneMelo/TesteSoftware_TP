@@ -49,5 +49,13 @@ jobs:
       - name: Pre-build Matplotlib font cache
         run: python -c "import matplotlib.pyplot as plt; plt.figure(); plt.close()"
 
-      - name: Run tests
-        run: python -m unittest discover -s testes  # onde 'tests' é o diretório de testes
+      - name: Run tests with coverage
+        run: |
+          pytest --cov=Grafico --cov=LogicaCalculadora --cov=RelatorioPDF --cov-report=term-missing testes/  # Substitua 'testes/' pelo diretório onde os arquivos de teste estão localizados
+
+      - name: Upload coverage report (optional)
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: .coverage  # Arquivo gerado pelo pytest-cov
