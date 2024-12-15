@@ -47,4 +47,4 @@ jobs:
 
       - name: Run tests with unittest
         run: |
-          python -m unittest testes.test_Grafico testes.test_LogicaCalculadora testes.test_RelatorioPDF
+          python -m unittest test_Grafico.py test_LogicaCalculadora.py test_RelatorioPDF.py
