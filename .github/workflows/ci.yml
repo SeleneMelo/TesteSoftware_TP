@@ -13,8 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}  # Define o sistema operacional para rodar os testes
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.8, 3.9, 3.10]  # Definir as versões de Python para testar
+        os: [ubuntu-latest, macos-latest, windows-latest]  # Testar em múltiplos sistemas operacionais
 
     steps:
       - name: Checkout code
@@ -23,7 +22,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}  # Instala o Python conforme a versão configurada
+          python-version: 3.9  # Usar apenas a versão 3.9 do Python
 
       - name: Install dependencies
         run: |
