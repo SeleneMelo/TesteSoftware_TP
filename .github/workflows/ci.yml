@@ -12,7 +12,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: ubuntu-latest
+        os: [ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -49,5 +49,6 @@ jobs:
       - name: Pre-build Matplotlib font cache
         run: python -c "import matplotlib.pyplot as plt; plt.figure(); plt.close()"
 
-      - name: Run tests
-        run: python -m unittest discover -s testes  # onde 'tests' é o diretório de testes
+      - name: Run tests with unittest
+        run: |
+          python -m unittest discover -s testes  # Substitua 'testes' pelo diretório dos testes
