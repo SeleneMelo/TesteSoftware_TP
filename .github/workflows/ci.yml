@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test-ubuntu:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,92 +20,19 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Cache Matplotlib font cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/matplotlib
-          key: ${{ runner.os }}-matplotlib-font-cache
-          restore-keys: |
-            ${{ runner.os }}-matplotlib-
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Pre-build Matplotlib font cache
-        run: python -c "import matplotlib.pyplot as plt; plt.figure(); plt.close()"
-
-      - name: Run tests with unittest
+      - name: Run tests with coverage
         run: |
-          python -m unittest test_Grafico.py test_LogicaCalculadora.py test_RelatorioPDF.py
-
-  test-windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+          coverage run -m unittest discover  # Executa os testes com cobertura
+          coverage report  # Exibe o relatório de cobertura no console
+          coverage xml -o coverage.xml  # Gera o arquivo XML de cobertura
+          
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
         with:
-          python-version: 3.9
-
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        with:
-          path: C:\Users\runneradmin\AppData\Local\pip\cache
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Pre-build Matplotlib font cache
-        run: python -c "import matplotlib.pyplot as plt; plt.figure(); plt.close()"
-
-      - name: Run tests with unittest
-        run: |
-          python -m unittest test_Grafico.py test_LogicaCalculadora.py test_RelatorioPDF.py
-
-  test-macos:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Pre-build Matplotlib font cache
-        run: python -c "import matplotlib.pyplot as plt; plt.figure(); plt.close()"
-
-      - name: Run tests with unittest
-        run: |
-          python -m unittest test_Grafico.py test_LogicaCalculadora.py test_RelatorioPDF.py
+          file: coverage.xml  # Especifica o arquivo gerado para envio ao Codecov
+          token: ${{ secrets.CODECOV_TOKEN }}  # Token do Codecov, se necessário
