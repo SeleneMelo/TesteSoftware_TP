@@ -47,4 +47,4 @@ jobs:
 
       - name: Run tests with unittest
         run: |
-          python -m unittest discover -s testes  # Substitua 'testes' pelo diretório dos testes
+          python -m unittest testes.test_Grafico testes.test_LogicaCalculadora testes.test_RelatorioPDF
