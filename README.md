@@ -14,7 +14,7 @@ Para o desenvolvimento desse sistema optou-se por utilizar as seguintes tecnolog
 
 - **Linguagem de Programação**: Python
 - **Bibliotecas**: PySimpleGUI, matplotlib, reportlab, numpy, pandas
-- **Frameworks**: Unittest
+- **Frameworks**: Pytest
 - **Ferramenta de análise**: Coverage
 
 ## 3) Explicação das ferramentas utilizadas
