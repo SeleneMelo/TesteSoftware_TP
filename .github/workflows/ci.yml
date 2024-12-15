@@ -43,6 +43,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Definir Matplotlib para não criar cache de fontes
+      - name: Set Matplotlib config dir to /dev/null (avoid font cache)
+        run: |
+          export MPLCONFIGDIR=/dev/null
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
