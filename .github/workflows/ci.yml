@@ -10,7 +10,12 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,10 +25,13 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ matrix.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ matrix.os }}-pip-
 
       - name: Cache Matplotlib font cache
         uses: actions/cache@v3
@@ -32,6 +40,11 @@ jobs:
           key: ${{ runner.os }}-matplotlib-font-cache
           restore-keys: |
             ${{ runner.os }}-matplotlib-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Pre-build Matplotlib font cache
         run: python -c "import matplotlib.pyplot as plt; plt.figure(); plt.close()"
