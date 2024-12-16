@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 import os
-from InterfaceVisual import InterfaceVisual
+from Interface_Visual import InterfaceVisual
 
 
 class TestInterfaceVisual(unittest.TestCase):
