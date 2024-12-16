@@ -1,6 +1,10 @@
 import unittest
 from RelatorioPDF import RelatorioPDF
 import os
+import matplotlib
+matplotlib.use('Agg')  # Usar backend sem exibição gráfica
+import matplotlib.pyplot as plt  # Agora, o Matplotlib pode ser importado sem gerar cache de fontes
+
 
 class TestRelatorioPDF(unittest.TestCase):
 
