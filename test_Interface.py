@@ -34,6 +34,20 @@ class TestInterfaceVisual(unittest.TestCase):
             "Fim": '12/2022',
         })
 
+    @patch('builtins.input', side_effect=['2', '1000', '300'])  # Mock para coletar dados de descontos
+    def test_coletar_dados_descontos(self, mock_input):
+        # Testa a função coletar_dados_descontos
+        self.interface.coletar_dados_descontos()
+
+        # Verifica se os dados coletados estão corretos
+        self.assertEqual(self.interface.dados_descontos, {
+            "Dependentes": '2',
+            "Pensão Alimentícia": '1000',
+            "Outras Deduções": '300',
+        })
+
+    
+
 
 if __name__ == '__main__':
     unittest.main()
