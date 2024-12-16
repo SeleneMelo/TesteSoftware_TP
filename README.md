@@ -19,23 +19,26 @@ Para o desenvolvimento desse sistema optou-se por utilizar as seguintes tecnolog
 
 ## 3) Explicação das ferramentas utilizadas
 
+O unittest é o framework padrão de testes unitários do Python. Ele permite criar e organizar testes para verificar o comportamento e a funcionalidade do código, garantindo sua corretude. 
+
 O Coverage é uma ferramenta Python utilizada para medir a cobertura de testes de projetos. A cobertura de um código refere-se às partes do código que são efetivamente executados quando os testes são rodados. O uso dessa ferramenta é essencial para garantir a qualidade do software, permitindo que os desenvolvedores identifiquem facilmente trechos de códigos não testados, aumentando a confiança na robustez da aplicação e reduzindo as probabilidades do erros passarem despercebidos.
 A ferramenta oferece diversas funcionalidades úteis, incluindo a medição detalhada de quais linhas ou blocos do código foram cobertos durante os testes. Além disso, ela pode gerar relatórios em diferentes formatos, como texto, HTML e XML. O relatório em HTML, por exemplo, fornece uma interface visual em que as linhas cobertas são destacadas em verde, enquanto as não cobertas aparecem em vermelho. Essa visualização facilita a análise e ajuda a priorizar áreas do código que precisam de atenção adicional. Outra vantagem é que o Coverage é compatível com diversos frameworks de teste, como unittest, pytest e nose, tornando-o versátil e fácil de integrar em diferentes projetos.
 
-Para melhorar a produtividade, é possível integrar o Coverage em pipelines de integração contínua (CI/CD), monitorando a cobertura de testes em cada alteração do código, como faremos a seguir.
+Usar o framework unittest em conjunto com o coverage permite medir a cobertura de testes do seu código. O coverage analisa quais partes do código foram executadas durante os testes, fornecendo relatórios que ajudam a identificar áreas não testadas ou insuficientemente testadas. Isso é útil para garantir que todos os casos importantes sejam validados e que o código esteja bem testado. Ao rodar o unittest com o coverage, é possível garantir uma cobertura de testes mais abrangente e melhorar a qualidade geral do software.
+
+Por fim, integrar o Coverage em pipelines de integração contínua (CI) e entrega contínua (CD) é uma prática que visa melhorar a produtividade e a qualidade do software durante o desenvolvimento. CI/CD são práticas que automatizam o processo de integração de código e sua entrega em produção, garantindo que novas alterações no código sejam testadas e implantadas de forma rápida e eficiente. Essa integração ajuda a manter um alto nível de qualidade do código, pois permite que os desenvolvedores saibam, em tempo real, se os testes estão cobrindo todas as partes do código e se novas alterações estão sendo corretamente testadas.
 
 
-## 4) Relatório de cobertura
+## 4) Relatório de cobertura e integração CI/CD
 
-- Relátorio impresso na saída do terminal
-  
-<img width="493" alt="Captura de Tela 2024-12-15 às 15 09 16" src="https://github.com/user-attachments/assets/670ac1cd-f5c8-4bc6-8265-21ea05987523" />
 
-- Relatório html
+<img width="287" alt="Captura de Tela 2024-12-15 às 23 14 07" src="https://github.com/user-attachments/assets/768ce5a2-bcd4-4ea2-8fca-2ba0ebc8d2e2" />
 
-<img width="557" alt="Captura de Tela 2024-12-15 às 15 10 55" src="https://github.com/user-attachments/assets/ec05c038-e3b7-4be4-9e1c-344ce5221aa9" />
-<img width="821" alt="Captura de Tela 2024-12-15 às 15 11 12" src="https://github.com/user-attachments/assets/a8176763-7619-4283-9d06-3babbbb124a6" />
-<img width="1063" alt="Captura de Tela 2024-12-15 às 15 11 05" src="https://github.com/user-attachments/assets/7a998a26-e8ac-4214-b768-4a626219b19d" />
+<img width="1280" alt="Captura de Tela 2024-12-15 às 23 14 36" src="https://github.com/user-attachments/assets/e5102e47-a200-4ccf-b8f7-77bee10179cc" />
+
+Link do último build com sucesso do GitHub Actions:
+Link do Codecov do sistema:
+
 
 
   
