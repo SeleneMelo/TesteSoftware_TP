@@ -1,4 +1,4 @@
-# Teste de Softawe 
+# Teste de Software 
 Trabalho Prático da disciplina de Teste de Software - DCC/UFMG
 
 ## Integrante
