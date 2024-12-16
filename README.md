@@ -1,7 +1,7 @@
 # Teste de Software 
 Trabalho Prático da disciplina de Teste de Software - DCC/UFMG
 
-## Integrante
+## Desenvolvedora:
 - Selene Melo Andrade - 2019054986
 
 ## 1) Explicação do sistema
