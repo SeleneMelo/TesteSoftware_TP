@@ -1,11 +1,8 @@
 import unittest
 from unittest.mock import patch
 import os
-import sys
+from InterfaceVisual import InterfaceVisual
 
-from Interface_Visual import InterfaceVisual
-
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 class TestInterfaceVisual(unittest.TestCase):
 
