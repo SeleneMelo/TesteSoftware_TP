@@ -32,7 +32,7 @@ jobs:
           coverage xml -o coverage.xml  # Gera o arquivo XML de cobertura
           
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           file: coverage.xml  # Especifica o arquivo gerado para envio ao Codecov
           token: ${{ secrets.CODECOV_TOKEN }}  # Token do Codecov, se necessário
@@ -49,7 +49,7 @@ jobs:
           export MPLCONFIGDIR=/dev/null
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.9
 
@@ -97,7 +97,7 @@ jobs:
           coverage xml -o coverage.xml  # Gera o arquivo XML de cobertura
         
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           file: coverage.xml  # Especifica o arquivo gerado para envio ao Codecov
           token: ${{ secrets.CODECOV_TOKEN }}  # Token do Codecov, se necessário
