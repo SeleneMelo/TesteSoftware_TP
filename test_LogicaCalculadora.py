@@ -1,4 +1,8 @@
 import unittest
+import matplotlib
+matplotlib.use('Agg')  # Usar backend sem exibição gráfica
+import matplotlib.pyplot as plt  # Agora, o Matplotlib pode ser importado sem gerar cache de fontes
+
 from LogicaCalculadora import LogicaCalculadora
 
 class TestLogicaCalculadora(unittest.TestCase):
