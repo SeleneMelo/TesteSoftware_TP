@@ -3,6 +3,10 @@ import os
 import matplotlib.pyplot as plt
 from Grafico import Grafico
 
+import matplotlib
+matplotlib.use('Agg')  # Usar backend sem exibição gráfica
+import matplotlib.pyplot as plt  # Agora, o Matplotlib pode ser importado sem gerar cache de fontes
+
 class TestGrafico(unittest.TestCase):
 
     def setUp(self):
