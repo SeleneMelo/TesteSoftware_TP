@@ -46,6 +46,9 @@ Por fim, integrar o Coverage em pipelines de integração contínua (CI) e entre
   
 <img width="1303" alt="Captura de Tela 2025-01-12 às 22 02 11" src="https://github.com/user-attachments/assets/07e28ce9-aa4e-49e1-a6d7-6bd8c20a8c25" />
 
+- [Link do último build de sucesso do GitHub Actions]( https://github.com/SeleneMelo/TesteSoftware_TP/actions/runs/12738791506)
+- [Link do Codecov do sistema]( https://app.codecov.io/gh/SeleneMelo/TesteSoftware_TP)
+
   
 
 
