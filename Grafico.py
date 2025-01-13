@@ -12,7 +12,7 @@ class Grafico:
 
         self.salario_liquido = salario_liquido
         self.irrf_recolhido = irrf_recolhido
-        self.anos_vigencia = anos_vigencia
+        self.anos_vigencia = self._validar_anos_vigencia(anos_vigencia)
         self.numero_de_graficos = numero_de_graficos + 1
 
         self.salario_base = salario_base
@@ -22,6 +22,13 @@ class Grafico:
         self.deducoes = deducoes
 
         self.nome_contribuinte = nome_contribuinte
+
+    @staticmethod
+    def _validar_anos_vigencia(anos_vigencia):
+        """Garante que anos_vigencia seja uma lista de strings válidas."""
+        if not anos_vigencia or not isinstance(anos_vigencia, list):
+            raise ValueError("Os anos de vigência devem ser fornecidos como uma lista.")
+        return [str(ano) for ano in anos_vigencia]
 
     @staticmethod
     def formatar_texto_da_barra_de_baixo_do_grafico(x, y):
@@ -54,10 +61,8 @@ class Grafico:
         tick = mtick.StrMethodFormatter(fmt)
         ax1.yaxis.set_major_formatter(tick)
 
-        plt.gcf()
-        plt.gca()
         plt.show()
-        fig1.savefig('Grafico 1 do contribuinte ' + str(self.nome_contribuinte) + '.png', format='png')
+        fig1.savefig(f"Grafico 1 do contribuinte {self.nome_contribuinte}.png", format='png')
 
     def criargrafico2(self):
         plt.rc('font', **{'sans-serif': 'Arial', 'family': 'sans-serif'})
@@ -80,10 +85,8 @@ class Grafico:
         tick = mtick.StrMethodFormatter(fmt)
         ax2.yaxis.set_major_formatter(tick)
 
-        plt.gcf()
-        plt.gca()
         plt.show()
-        fig2.savefig('Grafico 2 do contribuinte ' + str(self.nome_contribuinte) + '.png', format='png')
+        fig2.savefig(f"Grafico 2 do contribuinte {self.nome_contribuinte}.png", format='png')
 
     def criargrafico3(self):
         plt.rc('font', **{'sans-serif': 'Arial', 'family': 'sans-serif'})
@@ -106,7 +109,5 @@ class Grafico:
         tick = mtick.StrMethodFormatter(fmt)
         ax3.yaxis.set_major_formatter(tick)
 
-        plt.gcf()
-        plt.gca()
         plt.show()
-        fig3.savefig('grafico do contribuinte ' + str(self.nome_contribuinte) + '.png', format='png')
+        fig3.savefig(f"grafico do contribuinte {self.nome_contribuinte}.png", format='png')
