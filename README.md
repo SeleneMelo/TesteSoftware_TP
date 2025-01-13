@@ -40,8 +40,12 @@ Por fim, integrar o Coverage em pipelines de integração contínua (CI) e entre
 - [Link do Codecov do sistema]( https://app.codecov.io/github/SeleneMelo/TesteSoftware_TP)
 
 
+  ## TRABALHO PRÁTICO: PARTE II
+  ## 5) Relatório de cobertura e integração CI/CD após os testes de integração e testes e2e
 
   
+<img width="1303" alt="Captura de Tela 2025-01-12 às 22 02 11" src="https://github.com/user-attachments/assets/07e28ce9-aa4e-49e1-a6d7-6bd8c20a8c25" />
 
+  
 
 
